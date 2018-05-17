@@ -60,8 +60,7 @@ void setupColours(Material material, vec2 textCoord) {
         ambientC = texture(texture_sampler, textCoord);
         diffuseC = ambientC;
         speculrC = ambientC;
-    }
-    else {
+    } else {
         ambientC = material.ambient;
         diffuseC = material.diffuse;
         speculrC = material.specular;
