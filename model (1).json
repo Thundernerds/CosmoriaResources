@@ -1,0 +1,36 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "B59688B8-5F44-48C5-814D-D6C70A8C100A",
+			"type": "PlaneBufferGeometry",
+			"width": 1,
+			"height": 1,
+			"widthSegments": 64,
+			"heightSegments": 64
+		}],
+	"materials": [
+		{
+			"uuid": "3CC595D7-71CA-49B7-8324-4BAAD232D723",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		}],
+	"object": {
+		"uuid": "F11C5FC1-4953-4400-8CED-4B95F572191A",
+		"type": "Mesh",
+		"name": "Plane",
+		"matrix": [1,0,0,0,0,0,-1,0,0,1,0,0,0,0,0,1],
+		"geometry": "B59688B8-5F44-48C5-814D-D6C70A8C100A",
+		"material": "3CC595D7-71CA-49B7-8324-4BAAD232D723"
+	}
+}
