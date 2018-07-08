@@ -12,3 +12,4 @@
 "compassobj","$models/compass.obj","compass.obj"
 "chunkplaneobj","$models/chunk_plane.obj","chunk_plane.obj"
 "skydomeobj","$models/skydome.obj","skydome.obj"
+"settings","$home/settings.json","settings.json"
