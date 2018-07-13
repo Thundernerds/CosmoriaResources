@@ -4,8 +4,8 @@
 "hud_fragment","$shaders/hud/hud_fragment.f.glsl","hud_fragment.f.glsl"
 "chunk_vertex","$shaders/chunk/chunk_vertex.v.glsl","chunk_vertex.v.glsl"
 "chunk_fragment","$shaders/chunk/chunk_fragment.f.glsl","chunk_fragment.f.glsl"
-"pp_vertex","$shaders/postprocesssing/postprocessing.v.glsl","postprocessing.v.glsl"
-"pp_fragment","$shaders/postprocesssing/postprocessing.f.glsl","postprocessing.f.glsl"
+"pp_vertex","$shaders/postprocessing/postprocessing.v.glsl","postprocessing.v.glsl"
+"pp_fragment","$shaders/postprocessing/postprocessing.f.glsl","postprocessing.f.glsl"
 "skydome_vertex","$shaders/skydome/skydome.v.glsl","skydome.v.glsl"
 "skydome_fragment","$shaders/skydome/skydome.f.glsl","skydome.f.glsl"
 
