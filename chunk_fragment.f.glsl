@@ -2,12 +2,11 @@
 
 in vec2 position2D;
 in vec3 mvVertexPos;
-in mat4 outModelViewMatrix;
 
 out vec4 fragColor;
 
 struct DirectionalLight {
-    vec3 colour;
+    vec3 color;
     vec3 direction;
     float intensity;
 };
@@ -64,14 +63,13 @@ const float addRadius = 15.0;
 
 void main() {
     vec3 faceNormal = normalize(cross(dFdx(mvVertexPos), dFdy(mvVertexPos)));
-    faceNormal = normalize((vec4(faceNormal, 1.0) * outModelViewMatrix).xyz);
     
     vec3 pos = vec3(floor(position2D), mod(position2D.y, 1.0) > mod(-position2D.x - 1.0, 1.0)? 0.0:1.0);
     vec3 c = baseColor + (vec3(random(pos, addSeeds[0]), random(pos, addSeeds[1]), random(pos, addSeeds[1])) * addRadius) - (addRadius * 0.5);
     c *= 0.00444;
     ambientC = vec4(c, 1.0);
 
-    c *= calcLightColour(directionalLight.colour, directionalLight.intensity, mvVertexPos, normalize(directionalLight.direction), faceNormal).xyz;
+    c *= calcLightColour(directionalLight.color, directionalLight.intensity, mvVertexPos, normalize(directionalLight.direction), faceNormal).xyz;
     c *= ambientLight;
 
     float dist = min(max(0.0, distance(vec3(0.0), mvVertexPos) - fog.start) * fog.density, 1.0);

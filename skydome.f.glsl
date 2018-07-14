@@ -7,13 +7,22 @@ in vec3 outPos;
 uniform vec3 color1;
 uniform vec3 color2;
 
+uniform sampler2D sun;
+uniform vec3 sunDirection;
+
+const float lowerStart = 0.025;
+const float gradZone = 0.075;
+const float mul = 1.0 / (gradZone * 2.0);
+
+float range(float f, float mi, float ma) {
+	return min(max(f, mi), ma);
+}
+
 void main() {
-	// fragColor = vec4(distance(outPos, vec3(0, 1, 0)) / 2);
-	// float c = (time + 1.0) / 2.0;
-	// if (outPos.y > 0.1) {
-		fragColor = vec4(color1, 1.0);
-	// } else {
-		// fragColor = vec4(color2, 1.0);
-	// }
-	color2;
+	float dist = ((lowerStart - outPos.y) + gradZone) * mul;
+	dist = range(dist, 0.0, 1.0);	
+	fragColor = vec4(mix(color1, color2, dist), 1.0);
+	vec4 sunColor = texture(sun, outPos.xy);
+	if (sunColor.a != 0.0) fragColor = sunColor.rgba;
+	sunDirection;
 }
