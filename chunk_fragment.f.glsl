@@ -42,7 +42,6 @@ vec4 calcLightColour(vec3 light_colour, float light_intensity, vec3 position, ve
     diffuseColour = diffuseC * vec4(light_colour, 1.0) * light_intensity * diffuseFactor;
 
     // Specular Light
-    // vec3 camera_direction = normalize(-position);
     vec3 from_light_dir = -to_light_dir;
     vec3 reflected_light = normalize(reflect(from_light_dir , normal));
     float specularFactor = max( dot(vec3(1.0, 1.0, 1.0), reflected_light), 0.0);
@@ -74,6 +73,5 @@ void main() {
 
     float dist = min(max(0.0, distance(vec3(0.0), mvVertexPos) - fog.start) * fog.density, 1.0);
 
-    // fragColor = mix(vec4(c, 1.0), fog.color, dist);
     fragColor = vec4(c, 1 - dist);
 }
