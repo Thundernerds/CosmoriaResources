@@ -16,3 +16,5 @@
 "settings","$home/settings.json","settings.json"
 
 "sun","$textures/sun.png","sun.png"
+
+"gitPath","$home/gitPath.csv","gitPath.csv"
