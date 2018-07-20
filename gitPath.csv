@@ -10,8 +10,8 @@
 "$shaders/hud/hud_fragment.f.glsl","hud_fragment.f.glsl"
 "$shaders/chunk/chunk_vertex.v.glsl","chunk_vertex.v.glsl"
 "$shaders/chunk/chunk_fragment.f.glsl","chunk_fragment.f.glsl"
-"$shaders/postprocessing/post_processing.v.glsl","postprocessing.v.glsl"
-"$shaders/postprocessing/post_processing.f.glsl","postprocessing.f.glsl"
+"$shaders/post_processing/post_processing.v.glsl","postprocessing.v.glsl"
+"$shaders/post_processing/post_processing.f.glsl","postprocessing.f.glsl"
 "$shaders/skydome/skydome.v.glsl","skydome.v.glsl"
 "$shaders/skydome/skydome.f.glsl","skydome.f.glsl"
 
