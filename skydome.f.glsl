@@ -11,7 +11,7 @@ uniform sampler2D sun;
 uniform vec3 sunDirection;
 uniform vec2 sunLine;
 
-const float lowerStart = 0.025;
+const float lowerStart = 0.0;
 const float gradZone = 0.075;
 const float mul = 1.0 / (gradZone * 2.0);
 
@@ -30,30 +30,6 @@ vec2 intersection(vec2 line1, vec2 line2) {
 
 void main() {
 	sun; sunDirection;
-	// float x = (((outPos.x - sunDirection.x) * 10) + 1) * 0.5;
-	// float y = (((outPos.z - sunDirection.z) * 10) + 1) * 0.5;
-
-	// vec2 pos = vec2(y, x);
-	// pos *= sunShrink;
-	// pos += (1.0 - sunShrink) / 2.0;
-	
-	// vec4 nColor = texture(sun, pos);
-	// if (nColor.a != 0) {
-	// 	fragColor = nColor;
-	// 	return;
-	// }
-
-	// float dist = distance(sunDirection, outPos);
-	// if (dist < 0.1) {
-	// 	fragColor = vec4(1.0, 0, 0, 1.0);
-	// 	return;
-	// }
-	// fragColor = vec4(0, 0, 0, 1.0);
-	
-	// color1; color2;
-
-	vec3 angle = sunDirection - outPos;
-	// fragColor = vec4(angle, 1.0);
 
 	float dist = ((lowerStart - outPos.y) + gradZone) * mul;
 	dist = range(dist, 0.0, 1.0);	

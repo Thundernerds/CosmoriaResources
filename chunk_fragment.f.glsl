@@ -2,6 +2,7 @@
 
 in vec2 position2D;
 in vec3 mvVertexPos;
+in vec3 noRotVertexPos;
 
 out vec4 fragColor;
 
@@ -15,23 +16,14 @@ float random(vec3 st, float seed) {
     return fract(sin(dot(st.xyz, vec3(12.9898, 78.233, 56.7823))) * seed);
 }
 
-vec3 merge(vec3 color1, vec3 color2, float opacity) {
-    vec3 end = vec3(color1);
-    end.x += ((color2.x - end.x) * opacity);
-    end.y += ((color2.y - end.y) * opacity);
-    end.z += ((color2.z - end.z) * opacity);
-
-    return end;
-}
-
 struct Fog {
     float density;
     float start;
 };
 
 vec4 ambientC;
-const vec4 diffuseC = vec4(0.5, 0.5, 0.5, 1.0);
-const vec4 speculrC = vec4(0.5, 0.5, 0.5, 1.0);
+const vec4 diffuseC = vec4(vec3(0.5), 1.0);
+const vec4 speculrC = vec4(vec3(0.4), 1.0);
 
 vec4 calcLightColour(vec3 light_colour, float light_intensity, vec3 position, vec3 to_light_dir, vec3 normal) {
     vec4 diffuseColour = vec4(0, 0, 0, 0);
@@ -42,9 +34,10 @@ vec4 calcLightColour(vec3 light_colour, float light_intensity, vec3 position, ve
     diffuseColour = diffuseC * vec4(light_colour, 1.0) * light_intensity * diffuseFactor;
 
     // Specular Light
+    vec3 camera_direction = normalize(-position);
     vec3 from_light_dir = -to_light_dir;
     vec3 reflected_light = normalize(reflect(from_light_dir , normal));
-    float specularFactor = max( dot(vec3(1.0, 1.0, 1.0), reflected_light), 0.0);
+    float specularFactor = max( dot(camera_direction, reflected_light), 0.0);
     specularFactor = pow(specularFactor, 0.5);
     specColour = speculrC * light_intensity * vec4(light_colour, 1.0);
 
@@ -60,6 +53,24 @@ const vec3 baseColor = vec3(221, 90, 42);
 const float addSeeds[] = float[] (18342.2738743, 37623.23224534, 734632.287321);
 const float addRadius = 15.0;
 
+const float lowerStart = 0.0;
+const float gradZone = 0.075;
+const float mul = 1.0 / (gradZone * 2.0);
+
+uniform vec3 color1;
+uniform vec3 color2;
+uniform vec3 sunDirection;
+
+const float skyDomeRadius;
+
+vec3 calcFogColor() {
+    sunDirection;
+
+    float dist = ((lowerStart - (noRotVertexPos.y / skyDomeRadius)) + gradZone) * mul;
+    dist = min(max(dist, 0.0), 1.0);
+    return mix(color1, color2, dist);
+}
+
 void main() {
     vec3 faceNormal = normalize(cross(dFdx(mvVertexPos), dFdy(mvVertexPos)));
     
@@ -71,7 +82,9 @@ void main() {
     c *= calcLightColour(directionalLight.color, directionalLight.intensity, mvVertexPos, normalize(directionalLight.direction), faceNormal).xyz;
     c *= ambientLight;
 
-    float dist = min(max(0.0, distance(vec3(0.0), mvVertexPos) - fog.start) * fog.density, 1.0);
+    float dist = min(max(0.0, length(mvVertexPos) - fog.start) * fog.density, 1.0);
 
-    fragColor = vec4(c, 1 - dist);
+    fragColor = vec4(mix(c, calcFogColor(), dist), 1.0);
+    // fragColor = vec4(vec3(length(mvVertexPos) / 4000.0), 1.0);
+    // fragColor = vec4(c, 1.0);
 }
