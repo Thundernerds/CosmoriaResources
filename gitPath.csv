@@ -19,6 +19,9 @@
 "$models/compass.obj","compass.obj"
 "$models/chunk_plane.obj","chunk_plane.obj"
 "$models/skydome.obj","skydome.obj"
+
 "$home/settings.json","settings.json"
 
 "$textures/sun.png","sun.png"
+
+"$fonts/spaceAge.ttf","spaceAge.ttf"
