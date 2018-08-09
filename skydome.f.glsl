@@ -31,11 +31,14 @@ vec2 intersection(vec2 line1, vec2 line2) {
 void main() {
 	sun; sunDirection;
 
-	float dist = ((lowerStart - outPos.y) + gradZone) * mul;
-	dist = range(dist, 0.0, 1.0);	
-	// color1; color2;
-	fragColor = vec4(mix(color1, color2, dist), 1.0);
-	// fragColor = vec4(sunLine, 0.0, 1.0);
-	sunLine;
-
+	if (distance(sunDirection, outPos) < 0.2) {
+		fragColor = vec4(vec3(253, 129, 36) / 255.0, 1.0);
+	} else {
+		float dist = ((lowerStart - outPos.y) + gradZone) * mul;
+		dist = range(dist, 0.0, 1.0);	
+		// color1; color2;
+		fragColor = vec4(mix(color1, color2, dist) * (1.0 - max(outPos.y * 0.25, 0.0)), 1.0);
+		// fragColor = vec4(sunLine, 0.0, 1.0);
+		sunLine;
+	}
 }

@@ -22,3 +22,11 @@
 "$home/settings.json","settings.json"
 
 "$textures/sun.png","sun.png"
+"$textures/crosshair.png","crosshair.png"
+
+"$fonts/spaceAge.ttf","spaceAge.ttf"
+
+"$audio/bg.ogg","bg.ogg"
+
+"$uis/loading.xhtml","loading.xhtml"
+"$uis/game.xhtml","game.xhtml"

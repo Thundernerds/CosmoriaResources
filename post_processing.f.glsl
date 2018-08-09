@@ -6,13 +6,7 @@ uniform sampler2D depthTexture;
 in vec2 outPos;
 out vec4 fragColor;
 
-struct Fog {
-    float density;
-    float start;
-};
-
 uniform float time;
-uniform Fog fog;
 
 float linearizeDepth(float zoverw){
 	float n = 0.01; // camera z near
@@ -34,7 +28,7 @@ vec4 blur(float dist) {
 
 
 void main() {
-	time; fog.density; fog.start; depthTexture;
+	time; depthTexture;
 
 	fragColor = texture(colorTexture, outPos);
 }

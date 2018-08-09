@@ -1,0 +1,39 @@
+<page bg="0.5 0.5 0.5">
+	<style>
+		#main {
+			width: 100;
+			height: 100;
+			position: 50 50;
+
+			z-index: 3;
+		}
+
+		#instructions {
+			position: 1 0;
+			scale: 0.7;
+
+			z-index: 0;
+		}
+
+		#compass {
+			color: 1 0 0;
+			position: 93 14;
+
+			scale: 120;
+
+			z-index: 1;
+		}
+
+		#crosshair {
+			position: 50 50;
+			z-index: 1;
+
+			width: 3.5;
+			height: 5;
+		}
+	</style>
+	<canvas id="main"></canvas>
+	<p id="instructions">Press ESC to pause / unpause the game</p>
+	<model id="compass" path="$models/compass.obj"></model>
+	<rect imageSrc="$textures/crosshair.png" id="crosshair"></rect>
+</page>
