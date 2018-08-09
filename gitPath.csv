@@ -19,9 +19,11 @@
 "$models/compass.obj","compass.obj"
 "$models/chunk_plane.obj","chunk_plane.obj"
 "$models/skydome.obj","skydome.obj"
+
 "$home/settings.json","settings.json"
 
 "$textures/sun.png","sun.png"
+<<<<<<< HEAD
 "$textures/crosshair.png","crosshair.png"
 
 "$fonts/spaceAge.ttf","spaceAge.ttf"
@@ -30,3 +32,7 @@
 
 "$uis/loading.xhtml","loading.xhtml"
 "$uis/game.xhtml","game.xhtml"
+=======
+
+"$fonts/spaceAge.ttf","spaceAge.ttf"
+>>>>>>> 0cecdc0f56a75c9e566c65600f65809887f2b0e9
